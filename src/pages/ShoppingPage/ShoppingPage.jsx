@@ -44,7 +44,7 @@ const ShoppingPage = () => {
         </ul>
       </div>
       <div className="products">
-        {products.length && (
+        {products.length !== 0 && (
           <ul className="products-list">
             {" "}
             {products.map((product) => (
