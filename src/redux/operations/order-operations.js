@@ -1,11 +1,11 @@
 const { createAsyncThunk } = require("@reduxjs/toolkit");
-const { submitOrder } = require("service/api");
+const { submitOrdere } = require("service/api");
 
-exports.submitOrder = createAsyncThunk(
+export const submitOrder = createAsyncThunk(
   "products/setProducts",
   async (data, { rejectWithValue }) => {
       try {
-      const result = await submitOrder(data);
+      const result = await submitOrdere(data);
       return result;
     } catch ({ response }) {
       rejectWithValue(response);

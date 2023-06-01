@@ -1,11 +1,11 @@
 const { createAsyncThunk } = require("@reduxjs/toolkit");
-const { fetchProducts, fetchProductsById } = require("service/api");
+const { fetchProductse, fetchProductsByIde } = require("service/api");
 
-exports.fetchProducts = createAsyncThunk(
+export const fetchProducts = createAsyncThunk(
   "products/setProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const result = await fetchProducts();
+      const result = await fetchProductse();
       return result;
     } catch ({ response }) {
       rejectWithValue(response);
@@ -13,9 +13,9 @@ exports.fetchProducts = createAsyncThunk(
   }
 );
 
-exports.fetchProductById = createAsyncThunk("products/getById", async (shopId, { rejectWithValue }) => {
+export const fetchProductById = createAsyncThunk("products/getById", async (shopId, { rejectWithValue }) => {
     try {
-      const result = await fetchProductsById(shopId);
+      const result = await fetchProductsByIde(shopId);
       return result;
     } catch ({ response }) {
       rejectWithValue(response);

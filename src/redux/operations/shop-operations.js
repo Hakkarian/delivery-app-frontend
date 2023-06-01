@@ -1,9 +1,9 @@
 const { createAsyncThunk } = require("@reduxjs/toolkit");
-const { fetchShops } = require("service/api");
+const { fetchShopse } = require("service/api");
 
-exports.fetchShops = createAsyncThunk('shops/setShops', async (_, {rejectWithValue}) => {
+export const fetchShops = createAsyncThunk('shops/setShops', async (_, {rejectWithValue}) => {
     try {
-        const result = await fetchShops();
+        const result = await fetchShopse();
         return result
     } catch ({response}) {
         rejectWithValue(response)
