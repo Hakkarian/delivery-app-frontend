@@ -6,11 +6,13 @@ import { fetchProductById } from "redux/operations/product-operations";
 import Product from "components/Product";
 import { ShoppingPageSheet } from "./ShoppingPage.styled";
 import { ProductSheet } from "components/Product/Product.styled";
+import { Container } from "shared/components/Container.styled";
 
 const ShoppingPage = () => {
   const [selectedShop, setSelectedShop] = useState(null);
   const dispatch = useDispatch();
   const shops = useSelector(selectShops);
+  console.log(shops)
   const products = useSelector(state => state.shops.products) || [];
 
 
@@ -24,38 +26,40 @@ const ShoppingPage = () => {
   };
 
   return (
-    <ShoppingPageSheet>
-      <div className="shops">
-        <h1 className="shops-title">Shops</h1>
-        <ul className="shops-list">
-          {shops.map((shop) => (
-            <li className="shops-list__item" key={shop._id}>
-              {" "}
-              <button
-                type="button"
-                onClick={() => handleOpenList(shop)}
-                className={selectedShop === shop ? "selected" : ""}
-                disabled={selectedShop && selectedShop !== shop}
-              >
-                {shop.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="products">
-        {products.length !== 0 && (
-          <ul className="products-list">
-            {" "}
-            {products.map((product) => (
-              <ProductSheet key={product._id}>
-                <Product product={product} selectedShop={selectedShop} />
-              </ProductSheet>
+    <Container>
+      <ShoppingPageSheet>
+        <div className="shops">
+          <h1 className="shops-title">Shops</h1>
+          <ul className="shops-list">
+            {shops.map((shop) => (
+              <li className="shops-list__item" key={shop._id}>
+                {" "}
+                <button
+                  type="button"
+                  onClick={() => handleOpenList(shop)}
+                  className={selectedShop === shop ? "selected" : ""}
+                  disabled={selectedShop && selectedShop !== shop}
+                >
+                  {shop.name}
+                </button>
+              </li>
             ))}
           </ul>
-        )}
-      </div>
-    </ShoppingPageSheet>
+        </div>
+        <div className="products">
+          {products.length !== 0 && (
+            <ul className="products-list">
+              {" "}
+              {products.map((product) => (
+                <ProductSheet key={product._id}>
+                  <Product product={product} selectedShop={selectedShop} />
+                </ProductSheet>
+              ))}
+            </ul>
+          )}
+        </div>
+      </ShoppingPageSheet>
+    </Container>
   );
 };
 

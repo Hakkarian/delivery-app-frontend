@@ -11,6 +11,7 @@ export const ShoppingCartPageSheet = styled.section`
   }
 
   .cart-wrap__title {
+    display: inline-block;
     margin-bottom: 20px;
   }
   .wrapper-connect {
@@ -79,9 +80,9 @@ export const ShoppingCartPageSheet = styled.section`
 
     &:hover,
     &:focus {
-      border: 1px solid #000;
+      border: 1px solid #fff;
       background-color: transparent;
-      color: #000;
+      color: #fff;
     }
 
     &:disabled {

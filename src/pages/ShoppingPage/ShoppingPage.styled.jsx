@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
-
 export const ShoppingPageSheet = styled.section`
+
+
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
@@ -45,9 +46,9 @@ export const ShoppingPageSheet = styled.section`
 
     &:hover,
     &:focus {
-      border: 1px solid #000;
+      border: 1px solid #fff;
       background-color: transparent;
-      color: #000;
+      color: #fff;
     }
 
     &:disabled {
@@ -63,7 +64,6 @@ export const ShoppingPageSheet = styled.section`
     }
   }
   .products {
-
     display: flex;
     flex-direction: column;
     align-items: center;
