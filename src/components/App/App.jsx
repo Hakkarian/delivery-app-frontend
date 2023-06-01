@@ -5,10 +5,13 @@ import ShoppingPage from 'pages/ShoppingPage';
 import MainPage from 'pages/MainPage';
 import ShoppingCartPage from 'pages/ShoppingCartPage';
 import AppBar from './AppBar';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
-    <><AppBar  />
+    <>
+      <Toaster />
+      <AppBar />
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/cart" element={<ShoppingCartPage />} />

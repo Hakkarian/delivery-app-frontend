@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux'
 import { addToCart } from 'redux/reducers/cart';
 
@@ -15,7 +16,14 @@ const Product = ({product, selectedShop}) => {
         if (selectedShop) {
             dispatch(addToCart(payload));
         } else {
-            console.log('You need to choose the shop first')
+            toast("Please, choose the shop first", {
+              icon: "❕",
+              style: {
+                borderRadius: "10px",
+                background: "darkblue",
+                color: "#fff",
+              },
+            });
         }
     }
 
