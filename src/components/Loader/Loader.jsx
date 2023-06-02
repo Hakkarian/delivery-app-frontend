@@ -1,9 +1,8 @@
 import React from 'react'
 import { LoaderCss } from './Loader.styled';
-import { useSelector } from 'react-redux';
 
 const Loader = () => {
-    
+
     return (
       <LoaderCss>
         <div className="animation-container">
