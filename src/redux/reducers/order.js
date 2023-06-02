@@ -1,5 +1,5 @@
 const { createSlice } = require("@reduxjs/toolkit")
-const { submitOrder } = require("redux/operations/order-operations")
+const { submitOrder, findOrder } = require("redux/operations/order-operations")
 
 const initialState = {
     name: '',
@@ -8,6 +8,7 @@ const initialState = {
     address: '',
     totalPrice: 0,
     items: [],
+    history: [],
     isLoading: false,
     error: null
 }
@@ -24,14 +25,25 @@ const orderSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
-          .addCase(submitOrder.fulfilled, (state, { payload }) => {
+      .addCase(submitOrder.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-          state.name = payload.name;
-          state.email = payload.email;
-          state.phone = payload.phone;
-          state.address = payload.address;
-          state.totalPrice = payload.totalPrice;
-          state.items = payload.items;
+        state.name = payload.name;
+        state.email = payload.email;
+        state.phone = payload.phone;
+        state.address = payload.address;
+        state.totalPrice = payload.totalPrice;
+        state.items = payload.items;
+      })
+      .addCase(findOrder.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(findOrder.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(findOrder.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.history = payload
       }),
 });
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_API_URL;
-axios.defaults.baseURL = baseUrl;
+
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 export const fetchShopse = async () => {
   const { data: result } = await axios.get(`/shops`)
@@ -22,3 +22,8 @@ export const submitOrdere = async (order) => {
   const { data: result } = await axios.post(`/orders`, order);
   return result;
 };
+
+export const findOrdere = async (order) => {
+  const { data: result } = await axios.post(`/orders/history`, order);
+  return result;
+}

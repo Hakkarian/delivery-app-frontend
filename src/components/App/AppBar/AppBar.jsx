@@ -6,11 +6,12 @@ import jepetto from 'images/boot-wings-logo.png'
 const AppBar = () => {
   return (
     <AppBarSheet>
-      <NavLink to="/" className='logo'>
+      <NavLink to="/" className="logo">
         <img src={jepetto} alt="logo" width={60} height={64} />
       </NavLink>
       <NavLink to="/shop">Shop</NavLink>
       <NavLink to="/cart">Cart</NavLink>
+      <NavLink to="/history">History</NavLink>
     </AppBarSheet>
   );
 }

@@ -18,9 +18,7 @@ const ShoppingCartPage = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const data = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log(data)
 
-  console.log('shop cart array', cartItems)
   
   const calculateTotalPrice = () => {
     return data.reduce(( total, item ) => total + item.price * item.quantity, 0);

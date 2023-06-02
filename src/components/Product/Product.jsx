@@ -8,7 +8,7 @@ const Product = ({product, selectedShop}) => {
 
     const handleAddToCart = () => {
         const { _id: id, name, price } = product;
-        console.log('product add to cart', id)
+
         const payload = {
             id,
             name, price

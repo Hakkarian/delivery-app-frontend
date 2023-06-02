@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 
 const { createAsyncThunk } = require("@reduxjs/toolkit");
-const { submitOrdere } = require("service/api");
+const { submitOrdere, findOrdere } = require("service/api");
 
 export const submitOrder = createAsyncThunk(
   "products/setProducts",
@@ -16,6 +16,18 @@ export const submitOrder = createAsyncThunk(
           color: '#fff',
         },
       });
+      return result;
+    } catch ({ response }) {
+      rejectWithValue(response);
+    }
+  }
+);
+
+export const findOrder = createAsyncThunk(
+  "orders/findOrder",
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await findOrdere(data);
       return result;
     } catch ({ response }) {
       rejectWithValue(response);

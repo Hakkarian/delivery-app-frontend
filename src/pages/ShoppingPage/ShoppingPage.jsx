@@ -12,7 +12,6 @@ const ShoppingPage = () => {
   const [selectedShop, setSelectedShop] = useState(null);
   const dispatch = useDispatch();
   const shops = useSelector(selectShops);
-  console.log(shops)
   const products = useSelector(state => state.shops.products) || [];
 
 
