@@ -31,7 +31,7 @@ const HistoryPage = () => {
     <Container>
       <HistoryPageSheet>
         <div className="cart-wrap">
-          <h2 className="cart-wrap__title">Order Form</h2>
+          <h2 className="cart-wrap__title">Your history</h2>
           <Formik
             initialValues={{
               email: "",
