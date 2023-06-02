@@ -17,6 +17,9 @@ export const ShoppingCartPageSheet = styled.section`
   .cart-wrap__title {
     display: inline-block;
     margin-bottom: 20px;
+    @media screen and (min-width: 1280px) {
+      position: relative;
+    }
   }
   .wrapper-connect {
     @media screen and (min-width: 1280px) {
@@ -26,12 +29,13 @@ export const ShoppingCartPageSheet = styled.section`
     }
   }
   .wrapper-wrap {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-bottom: 15px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (max-width: 1279px) {
       position: relative;
     }
   }
@@ -79,8 +83,8 @@ export const ShoppingCartPageSheet = styled.section`
     }
     @media screen and (min-width: 1280px) {
       position: absolute;
-      bottom: 20%;
-      left: 2%;
+      top: 50%;
+      transform: translate(-50%, -115%);
     }
   }
 
