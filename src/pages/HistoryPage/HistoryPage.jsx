@@ -79,7 +79,7 @@ const HistoryPage = () => {
                 </div>
                 {orders.length === 0 && (
                   <div className="plcholder-wrap">
-                    <h2>Your history is immaculately clean. Perfect!</h2>
+                    <h2>Please submit an email of your order to see your products :)</h2>
                     <img src={perfect} alt="perfectly clean" />
                   </div>
                 )}
