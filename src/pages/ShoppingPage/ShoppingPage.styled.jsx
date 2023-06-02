@@ -1,18 +1,22 @@
 import styled from "@emotion/styled";
 
+
 export const ShoppingPageSheet = styled.section`
   padding-top: 40px;
   padding-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 20%;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+  }
 
   .shops {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 20px;
+    margin-bottom: 20px;
   }
   .shops-title {
     font-size: 30px;

@@ -29,7 +29,7 @@ const Product = ({product, selectedShop}) => {
 
   return (
     <>
-      <img style={{borderRadius: '10px'}} src={product.preview} alt='product' width={150} height={150} />
+      <img style={{borderRadius: '10px'}} src={product.preview} alt='product' width={100} height={100} />
       <h3 className="products-list__title">{product.name}</h3>
       <p className="products-list__price">Price: {product.price}</p>
       <button type="button" onClick={handleAddToCart}>

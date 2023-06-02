@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
-import { Container } from "shared/components/Container.styled";
-
+import { Container } from "shared/components/Container/Container.styled";
 
 export const ShoppingCartPageSheet = styled.section`
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 90px;
   display: flex;
-  justify-content: center;
 
-  .cart-form {
+  .cart-wrap {
   }
 
   .cart-wrap__title {
@@ -16,15 +14,21 @@ export const ShoppingCartPageSheet = styled.section`
     margin-bottom: 20px;
   }
   .wrapper-connect {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
+    @media screen and (min-width: 1280px) {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
   }
   .wrapper-wrap {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-bottom: 15px;
+
+    @media screen and (min-width: 768px) {
+      position: relative;
+    }
   }
 
   .cart-form__wrap {
@@ -34,17 +38,18 @@ export const ShoppingCartPageSheet = styled.section`
   }
 
   .cart-form__field {
-    width: 500px;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 20px;
   }
 
   .cart-list {
-    display: flex;
-    flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+    }
   }
 
   .cart-list__item {
@@ -56,9 +61,22 @@ export const ShoppingCartPageSheet = styled.section`
   }
 
   .cart__submit-wrap {
-    position: absolute;
-    bottom: 30%;
+    position: fixed;
+    bottom: 2%;
+    right: 50%;
 
+    @media screen and (min-width: 768px) {
+      bottom: 2%;
+      right: 35%;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    @media screen and (min-width: 1280px) {
+      position: absolute;
+      bottom: 20%;
+      left: 2%;
+    }
   }
 
   button {
@@ -101,5 +119,6 @@ export const ShoppingCartPageSheet = styled.section`
 `;
 
 export const ContainerCart = styled(Container)`
-  height: 150vh;
-`
+  @media screen and (min-width: 1280px) {
+  }
+`;

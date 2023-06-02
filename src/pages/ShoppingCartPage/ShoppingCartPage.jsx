@@ -5,6 +5,7 @@ import { submitOrder } from 'redux/operations/order-operations';
 import { addToCart, removeFromCart } from 'redux/reducers/cart';
 import * as Yup from 'yup';
 import { ContainerCart, ShoppingCartPageSheet } from './ShoppingCartPage.styled';
+import { Container } from 'shared/components/Container';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -37,7 +38,7 @@ const ShoppingCartPage = () => {
   }
 
   return (
-    <ContainerCart>
+    <Container>
       <ShoppingCartPageSheet>
         <div className="cart-wrap">
           <h2 className="cart-wrap__title">Order Form</h2>
@@ -126,8 +127,8 @@ const ShoppingCartPage = () => {
                         style={{ borderRadius: "10px" }}
                         src={item.preview}
                         alt="product"
-                        width={150}
-                        height={150}
+                        width={100}
+                        height={100}
                       />
                       <h3 className="cart-list__item-title">{item?.name}</h3>
                       <p className="cart-list__item-price">
@@ -168,7 +169,7 @@ const ShoppingCartPage = () => {
           </Formik>
         </div>
       </ShoppingCartPageSheet>
-    </ContainerCart>
+    </Container>
   );
 }
 

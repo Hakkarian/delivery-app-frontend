@@ -6,11 +6,20 @@ export const AppBarSheet = styled.header`
 
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 3px;
 
   background-color: #ff9312;
   color: #000;
   backdrop-filter: blur(10px);
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+   gap: 10px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    gap: 15px;
+  }
 
   .logo {
     padding: 0;
@@ -25,7 +34,7 @@ export const AppBarSheet = styled.header`
   }
 
   a {
-    padding: 15px 20px;
+    padding: 8px 16px;
     color: #000;
     background-color: #fff;
 
@@ -38,6 +47,13 @@ export const AppBarSheet = styled.header`
     &:focus {
       color: #fff;
       background-color: #000;
+    }
+
+    @media screen and (min-width: 768px) {
+      padding: 10px 15px;
+    }
+    @media screen and (min-width: 1280px) {
+      padding: 15px 20px;
     }
   }
 `;

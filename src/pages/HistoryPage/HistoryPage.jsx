@@ -2,10 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react'
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { ContainerHistory, HistoryPageSheet } from './HistoryPage.styled';
+import { HistoryPageSheet } from './HistoryPage.styled';
 import { findOrder } from 'redux/operations/order-operations';
 
 import perfect from 'images/perfect.png';
+import { Container } from 'shared/components/Container';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -27,7 +28,7 @@ const HistoryPage = () => {
       );
     };
   return (
-    <ContainerHistory>
+    <Container>
       <HistoryPageSheet>
         <div className="cart-wrap">
           <h2 className="cart-wrap__title">Order Form</h2>
@@ -102,8 +103,8 @@ const HistoryPage = () => {
                                     style={{ borderRadius: "10px" }}
                                     src={item.preview}
                                     alt="product"
-                                    width={150}
-                                    height={150}
+                                    width={100}
+                                    height={100}
                                   />
                                   <h3 className="cart-list__item-title">
                                     {item?.name}
@@ -131,7 +132,7 @@ const HistoryPage = () => {
           </Formik>
         </div>
       </HistoryPageSheet>
-    </ContainerHistory>
+    </Container>
   );
 }
 

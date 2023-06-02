@@ -6,22 +6,21 @@ import { fetchProductById } from "redux/operations/product-operations";
 import Product from "components/Product";
 import { ShoppingPageSheet } from "./ShoppingPage.styled";
 import { ProductSheet } from "components/Product/Product.styled";
-import { Container } from "shared/components/Container.styled";
+import { Container } from "shared/components/Container/Container.styled";
 
 const ShoppingPage = () => {
   const [selectedShop, setSelectedShop] = useState(null);
   const dispatch = useDispatch();
   const shops = useSelector(selectShops);
-  const products = useSelector(state => state.shops.products) || [];
-
+  const products = useSelector((state) => state.shops.products) || [];
 
   useEffect(() => {
     dispatch(fetchShops());
   }, [dispatch]);
 
   const handleOpenList = (shop) => {
-    setSelectedShop(shop)
-    dispatch(fetchProductById(shop.name))
+    setSelectedShop(shop);
+    dispatch(fetchProductById(shop.name));
   };
 
   return (

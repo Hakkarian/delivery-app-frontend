@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { Routes, Route } from 'react-router-dom';
 import AppBar from "./AppBar";
 import Loader from 'components/Loader/Loader';
+import { ContainerBase } from 'shared/components/Container';
 
 const MainPage = lazy(() => import('pages/MainPage'));
 const ShoppingPage = lazy(() => import("pages/ShoppingPage"));
@@ -15,6 +16,7 @@ const App = () => {
     <>
       <Toaster />
       <AppBar />
+      <ContainerBase>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -23,7 +25,8 @@ const App = () => {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-      </Suspense>
+        </Suspense>
+        </ContainerBase>
     </>
   );
 }

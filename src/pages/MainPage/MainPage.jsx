@@ -1,15 +1,15 @@
-import React from 'react'
-import { MainPageSheet } from './MainPage.styled'
-import { Container } from 'shared/components/Container.styled';
+import React from "react";
+import { MainPageSheet } from "./MainPage.styled";
+import { ContainerMain } from "shared/components/Container";
 
 const MainPage = () => {
   return (
-    <Container>
+    <ContainerMain>
       <MainPageSheet>
         <h1 className="main-title">Glad to see you :)</h1>
       </MainPageSheet>
-    </Container>
+    </ContainerMain>
   );
-}
+};
 
-export default MainPage
+export default MainPage;

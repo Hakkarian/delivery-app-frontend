@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import gorgBack from "images/gorg-back.jpg";
 
-export const Container = styled.div`
-  height: 100vh;
+export const ContainerBase = styled.div`
   background-image: url(${gorgBack});
   background-repeat: no-repeat;
   background-position: center;
@@ -21,7 +20,8 @@ export const Container = styled.div`
     padding: 7px;
     border-radius: 15px 5px;
 
-    transition: color 250ms ease-in-out, background-color 250ms ease-in-out, border-radius 250ms ease-in-out;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out,
+      border-radius 250ms ease-in-out;
 
     &:hover,
     &:focus {
