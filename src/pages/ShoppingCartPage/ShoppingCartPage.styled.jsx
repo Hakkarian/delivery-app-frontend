@@ -6,6 +6,11 @@ export const ShoppingCartPageSheet = styled.section`
   padding-bottom: 90px;
   display: flex;
 
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    justify-content: center;
+  }
+
   .cart-wrap {
   }
 

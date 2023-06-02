@@ -5,6 +5,7 @@ export const HistoryPageSheet = styled.section`
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
+  justify-content: center;
 
   .cart-form {
   }
@@ -44,13 +45,11 @@ export const HistoryPageSheet = styled.section`
   }
 
   .orders-list {
-    @media screen and (min-width: 1280px) {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 20px;
-    }
   }
 
   .cart-list {
@@ -72,6 +71,7 @@ export const HistoryPageSheet = styled.section`
   }
 
   .cart-total {
+    display: inline-block;
     margin-bottom: 10px;
   }
 

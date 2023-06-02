@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
-import { ContainerBase } from "./ContainerBase.styled";
 
 
 export const Container = styled.div`
-
+  min-height: 150vh;
   padding: 0 15px;
 
   @media screen and (min-width: 768px) {
@@ -20,7 +19,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ContainerMain = styled(ContainerBase)`
-  height: 100vh;
+export const ContainerMain = styled(Container)`
+  height: 150vh;
   background-image: none;
 `
