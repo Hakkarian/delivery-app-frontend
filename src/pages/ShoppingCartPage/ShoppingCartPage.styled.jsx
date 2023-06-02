@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Container } from "shared/components/Container.styled";
 
 
 export const ShoppingCartPageSheet = styled.section`
@@ -20,6 +21,7 @@ export const ShoppingCartPageSheet = styled.section`
     gap: 20px;
   }
   .wrapper-wrap {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -39,6 +41,7 @@ export const ShoppingCartPageSheet = styled.section`
 
   .cart-list {
     display: flex;
+    flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 20px;
@@ -53,10 +56,8 @@ export const ShoppingCartPageSheet = styled.section`
   }
 
   .cart__submit-wrap {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-top: 40px;
+    position: absolute;
+    bottom: 30%;
 
   }
 
@@ -98,3 +99,7 @@ export const ShoppingCartPageSheet = styled.section`
     }
   }
 `;
+
+export const ContainerCart = styled(Container)`
+  height: 150vh;
+`

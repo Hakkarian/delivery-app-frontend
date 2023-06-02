@@ -7,11 +7,11 @@ const Product = ({product, selectedShop}) => {
     const dispatch = useDispatch();
 
     const handleAddToCart = () => {
-        const { _id: id, name, price } = product;
+        const { _id: id, name, price, preview } = product;
 
         const payload = {
             id,
-            name, price
+            name, price, preview
         }
         if (selectedShop) {
             dispatch(addToCart(payload));
@@ -29,6 +29,7 @@ const Product = ({product, selectedShop}) => {
 
   return (
     <>
+      <img style={{borderRadius: '10px'}} src={product.preview} alt='product' width={150} height={150} />
       <h3 className="products-list__title">{product.name}</h3>
       <p className="products-list__price">Price: {product.price}</p>
       <button type="button" onClick={handleAddToCart}>

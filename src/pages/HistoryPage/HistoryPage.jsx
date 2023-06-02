@@ -2,9 +2,10 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react'
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container } from 'shared/components/Container.styled';
-import { HistoryPageSheet } from './HistoryPage.styled';
+import { ContainerHistory, HistoryPageSheet } from './HistoryPage.styled';
 import { findOrder } from 'redux/operations/order-operations';
+
+import perfect from 'images/perfect.png';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -26,7 +27,7 @@ const HistoryPage = () => {
       );
     };
   return (
-    <Container>
+    <ContainerHistory>
       <HistoryPageSheet>
         <div className="cart-wrap">
           <h2 className="cart-wrap__title">Order Form</h2>
@@ -73,39 +74,64 @@ const HistoryPage = () => {
                       component="div"
                     />
                   </div>
-                  <button type='submit'>Submit</button>
+                  <button type="submit">Submit</button>
                 </div>
-                <ul className="orders-list">
-                  {orders.map((order) => (
-                    <li key={order._id}>
-                      <ul className="cart-list">
-                        {order.items.map((item) => (
-                          <li className="cart-list__item" key={item.id}>
-                            <h3 className="cart-list__item-title">
-                              {item?.name}
-                            </h3>
-                            <p className="cart-list__item-price">
-                              Price: {item?.price}
-                            </p>
-                            <p className="cart-list__item-quantity">
-                              Quantity: {item?.quantity}
+                {orders.length === 0 && (
+                  <div className="plcholder-wrap">
+                    <h2>Your history is immaculately clean. Perfect!</h2>
+                    <img src={perfect} alt="perfectly clean" />
+                  </div>
+                )}
+                {orders.length !== 0 && (
+                  <ul className="orders-list">
+                    {orders.map((order) => (
+                      <>
+                        {order.items.length === 0 && (
+                          <li>
+                            <h2>
+                              Sorry, but you haven't bought anything yet :(
+                            </h2>
+                          </li>
+                        )}
+                        {order.items.length !== 0 && (
+                          <li key={order._id}>
+                            <ul className="cart-list">
+                              {order.items.map((item) => (
+                                <li className="cart-list__item" key={item.id}>
+                                  <img
+                                    style={{ borderRadius: "10px" }}
+                                    src={item.preview}
+                                    alt="product"
+                                    width={150}
+                                    height={150}
+                                  />
+                                  <h3 className="cart-list__item-title">
+                                    {item?.name}
+                                  </h3>
+                                  <p className="cart-list__item-price">
+                                    Price: {item?.price}
+                                  </p>
+                                  <p className="cart-list__item-quantity">
+                                    Quantity: {item?.quantity}
+                                  </p>
+                                </li>
+                              ))}
+                            </ul>
+                            <p className="cart-total">
+                              Total price: {calculateTotalPrice(order.items)}
                             </p>
                           </li>
-                        ))}
-                      </ul>
-                      <p className="cart-total">
-                        Total price: {calculateTotalPrice(order.items)}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
+                        )}
+                      </>
+                    ))}
+                  </ul>
+                )}
               </div>
-              <div className="cart__submit-wrap"></div>
             </Form>
           </Formik>
         </div>
       </HistoryPageSheet>
-    </Container>
+    </ContainerHistory>
   );
 }
 

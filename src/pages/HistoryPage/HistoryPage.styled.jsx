@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
+import { Container } from "shared/components/Container.styled";
 
 
 export const HistoryPageSheet = styled.section`
+  height: 200vh;
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
@@ -16,6 +18,7 @@ export const HistoryPageSheet = styled.section`
   }
   .wrapper-connect {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
   }
@@ -31,32 +34,39 @@ export const HistoryPageSheet = styled.section`
     gap: 10px;
   }
 
+  .plcholder-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .cart-form__field {
-    width: 500px;
+    width: 100%;
     padding: 10px 20px;
     border-radius: 20px;
   }
 
-  .cart-list {
+  .orders-list {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+  }
+
+  .cart-list {
+    display: flex;
+    fle-direction: column;
     gap: 20px;
   }
 
   .cart-list__item {
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-  }
-
-  .cart__submit-wrap {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-top: 40px;
+    gap: 10px;
   }
 
   button {
@@ -97,3 +107,7 @@ export const HistoryPageSheet = styled.section`
     }
   }
 `;
+
+export const ContainerHistory = styled(Container)`
+  height: 100%;
+`

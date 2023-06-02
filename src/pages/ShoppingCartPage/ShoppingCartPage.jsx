@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { submitOrder } from 'redux/operations/order-operations';
 import { addToCart, removeFromCart } from 'redux/reducers/cart';
 import * as Yup from 'yup';
-import { ShoppingCartPageSheet } from './ShoppingCartPage.styled';
-import { Container } from 'shared/components/Container.styled';
+import { ContainerCart, ShoppingCartPageSheet } from './ShoppingCartPage.styled';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -17,7 +16,7 @@ const validationSchema = Yup.object().shape({
 const ShoppingCartPage = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const data = JSON.parse(localStorage.getItem('cart')) || [];
+  let data = JSON.parse(localStorage.getItem('cart')) || [];
 
   
   const calculateTotalPrice = () => {
@@ -25,20 +24,20 @@ const ShoppingCartPage = () => {
   }
 
   const handleSubmitOrder = (values) => {
+    let totalPrice = calculateTotalPrice();
     const payload = {
       name: values.name,
       email: values.email,
       phone: values.phone,
       address: values.address,
-      totalPrice: calculateTotalPrice(),
+      totalPrice,
       items: data
     }
     dispatch(submitOrder(payload))
-    
   }
 
   return (
-    <Container>
+    <ContainerCart>
       <ShoppingCartPageSheet>
         <div className="cart-wrap">
           <h2 className="cart-wrap__title">Order Form</h2>
@@ -123,6 +122,13 @@ const ShoppingCartPage = () => {
                 <ul className="cart-list">
                   {data.map((item) => (
                     <li className="cart-list__item" key={item.id}>
+                      <img
+                        style={{ borderRadius: "10px" }}
+                        src={item.preview}
+                        alt="product"
+                        width={150}
+                        height={150}
+                      />
                       <h3 className="cart-list__item-title">{item?.name}</h3>
                       <p className="cart-list__item-price">
                         Price: {item?.price}
@@ -162,7 +168,7 @@ const ShoppingCartPage = () => {
           </Formik>
         </div>
       </ShoppingCartPageSheet>
-    </Container>
+    </ContainerCart>
   );
 }
 

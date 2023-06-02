@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import gorgBack from "images/gorg-back.jpg";
 
 export const Container = styled.div`
-  height: 89.4vh;
+  height: 100vh;
   background-image: url(${gorgBack});
   background-repeat: no-repeat;
   background-position: center;
