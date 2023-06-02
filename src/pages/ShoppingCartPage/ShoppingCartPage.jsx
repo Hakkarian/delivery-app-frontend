@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { submitOrder } from 'redux/operations/order-operations';
 import { addToCart, removeFromCart } from 'redux/reducers/cart';
 import * as Yup from 'yup';
-import { ContainerCart, ShoppingCartPageSheet } from './ShoppingCartPage.styled';
+import { ShoppingCartPageSheet } from './ShoppingCartPage.styled';
 import { Container } from 'shared/components/Container';
 
 const validationSchema = Yup.object().shape({

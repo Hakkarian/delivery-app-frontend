@@ -5,7 +5,7 @@ import shopsReducer from './reducers/shop';
 import cartReducer from './reducers/cart';
 import orderReducer from "./reducers/order";
 // import persistReducer from "redux-persist/es/persistReducer";
-import { persistStore } from "redux-persist";
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from "redux-persist";
 
 // const persistConfig = {
 //   key: "root",
@@ -19,7 +19,13 @@ export const store = configureStore({
         shops: shopsReducer,
         cart: cartReducer,
         order: orderReducer
-    }
+    },
+      middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoreActions: [FLUSH, REHYDRATE, REGISTER, PAUSE, PERSIST, PURGE],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);
