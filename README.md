@@ -9,3 +9,8 @@ cd app
 npm i
 npm start
 
+# Warning while entering the Shop page
+
+GET request working, but slowly, so at the start you're risking not seeing a list of shops. Please wait until the list of shops will show up, sorry for the inconvenience.
+
+
