@@ -21,10 +21,10 @@ const ShoppingCartPage = () => {
 
   
   const calculateTotalPrice = () => {
-    return data.reduce(( total, item ) => total + item.price * item.quantity, 0);
+    return data.reduce(( total, item ) => total + item.price * item.quantity, 0).toFixed(2);
   }
 
-  const handleSubmitOrder = (values) => {
+  const handleSubmitOrder = (values, {resetForm}) => {
     let totalPrice = calculateTotalPrice();
     const payload = {
       name: values.name,
@@ -35,6 +35,7 @@ const ShoppingCartPage = () => {
       items: data
     }
     dispatch(submitOrder(payload))
+    resetForm()
   }
 
   return (

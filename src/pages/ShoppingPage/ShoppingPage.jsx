@@ -7,6 +7,7 @@ import Product from "components/Product";
 import { ShoppingPageSheet } from "./ShoppingPage.styled";
 import { ProductSheet } from "components/Product/Product.styled";
 import { Container } from "shared/components/Container/Container.styled";
+import { block } from "million";
 
 const ShoppingPage = () => {
   const [selectedShop, setSelectedShop] = useState(null);
