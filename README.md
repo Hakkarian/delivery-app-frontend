@@ -7,7 +7,7 @@ A multipage application using React, Redux, Node.js, MongoDB, Mongoose and other
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Warning](#warning)
+- [Warning while entering the Shop page](#warning)
 
 ## Installation
 
