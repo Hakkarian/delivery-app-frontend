@@ -21,7 +21,7 @@ const ShoppingCartPage = () => {
 
   
   const calculateTotalPrice = () => {
-    return data.reduce(( total, item ) => total + item.price * item.quantity, 0).toFixed(2);
+    return data.reduce(( total, item ) => total + item.price * item.quantity, 0);
   }
 
   const handleSubmitOrder = (values, {resetForm}) => {
@@ -160,7 +160,7 @@ const ShoppingCartPage = () => {
               </div>
               <div className="cart__submit-wrap">
                 <p className="cart-total">
-                  Total price: {calculateTotalPrice(cartItems)}
+                  Total price: {calculateTotalPrice(cartItems).toFixed(2)}
                 </p>
                 <button className="cart-submit" type="submit">
                   Submit

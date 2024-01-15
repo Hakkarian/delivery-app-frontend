@@ -119,7 +119,7 @@ const HistoryPage = () => {
                               ))}
                             </ul>
                             <p className="cart-total">
-                              Total price: {calculateTotalPrice(order.items)}
+                              Total price: {calculateTotalPrice(order.items).toFixed(2)}
                             </p>
                           </li>
                         )}
