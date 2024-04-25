@@ -19,6 +19,7 @@ const BShoppingList = ({products, selectedShop}) => {
     );
 }
 
+
 const ShoppingList = block(BShoppingList);
 
 export default ShoppingList;
